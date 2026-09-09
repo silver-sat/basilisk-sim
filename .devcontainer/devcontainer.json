@@ -6,5 +6,5 @@
       "extensions": ["ms-python.python", "ms-toolsai.jupyter"]
     }
   },
-  "postCreateCommand": "bskExamples && echo 'Basilisk ready'"
+  "postCreateCommand": "python smoke_test.py"
 }
