@@ -1,0 +1,10 @@
+{
+  "name": "SilverSat Basilisk",
+  "build": { "dockerfile": "Dockerfile" },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-toolsai.jupyter"]
+    }
+  },
+  "postCreateCommand": "bskExamples && echo 'Basilisk ready'"
+}
