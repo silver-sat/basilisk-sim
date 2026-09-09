@@ -1,0 +1,4 @@
+FROM mcr.microsoft.com/devcontainers/python:3.12
+RUN pip install --no-cache-dir "bsk[all,examples]" jupyter matplotlib \
+ && bskLargeData
+ENV MPLBACKEND=Agg
