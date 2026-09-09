@@ -12,5 +12,4 @@ RUN BSK_VERSION="$(python -c 'import importlib.metadata as m; print(m.version("b
  && test "$(ls /opt/examples/*.py | wc -l)" -gt 50 \
  && chmod -R a+rX /opt/examples
 
-ENV MPLBACKEND=Agg
 ENV BSK_EXAMPLES=/opt/examples
