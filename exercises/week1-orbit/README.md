@@ -16,7 +16,7 @@ flight software will care about every single orbit:
   and how far Earth has rotated (you don't need to read it this week)
 
 ## Do this
-1. Run `python week1_starter.py` in the terminal and read the summary it prints.
+1. Run `week1_starter.py` in the terminal and read the summary it prints.
 2. Create the file `week1.ipynb` in the `week1-orbit` directory, which will 
    open a Jupyter notebook. 
 3. Open a code cell and run week1_starter.build_and_run(), assigning the output
@@ -25,17 +25,16 @@ flight software will care about every single orbit:
 5. Plot the data using week1_starter.plot().
 6. Work through the numbered TODOs at the bottom of the script. Write your
    answers in a `notes.md` in this folder; we'll compare as a group. Be 
-   specific: state "Contact time drops to 22 minutes at 5 degree elevation",
+   specific: say "Contact time drops to 22 minutes at 5 degree elevation",
    not simply "it went down."
 
-
-
-
-
 > [!TIP]
-> Python modules are not reloaded automatically when edited (such as
-> entering new values for the orbital parameters). If you change the 
+> Imported Python modules are not reloaded automatically when edited (such as
+> entering new values for your orbital parameters). If you change the 
 > week1_starter.py module and don't reload it, your data won't change.
+>
+> To avoid confusion and frustration, add these lines at the top of
+> your code cell.
 >
 > ```
 > %load_ext autoreload
