@@ -40,6 +40,8 @@ flight software will care about every single orbit:
 > %load_ext autoreload
 > %autoreload 2
 > ```
+> Autoreload doesn't update default arguments; restart the kernel if a 
+> parameter change seems to do nothing
 
 ## Done when
 You can say, with numbers, how many minutes per day we can talk to the

@@ -32,7 +32,7 @@ from Basilisk.utilities import (
 # Parameters you will be asked to change. Start with these.
 # ---------------------------------------------------------------------------
 ALTITUDE_KM      = 500.0                  # circular orbit altitude
-INCLINATION_DEG  = 51.6                   # ISS-like; SilverSat 1 was deployed from the ISS
+INCLINATION_DEG  = 51.6                   # 51.6 is ISS-like; SilverSat 1 was deployed from the ISS
 START_TIME_UTC   = "2026 SEP 21 12:00:00 (UTC)"
 SIM_DURATION_H   = 24.0
 
@@ -50,12 +50,14 @@ GS_MIN_ELEV_DEG  = 10.0                   # below this the antenna can't see us
 STEP_S           = 10.0                   # integration and logging step
 
 
-def build_and_run(altitude_km=ALTITUDE_KM,
-                  inclination_deg=INCLINATION_DEG,
-                  duration_h=SIM_DURATION_H,
-                  gs_lat_deg=GS_LAT_DEG,
-                  gs_lon_deg=GS_LON_DEG,
-                  gs_min_elev_deg=GS_MIN_ELEV_DEG):
+def build_and_run(altitude_km=None, inclination_deg=None, duration_h=None,
+                  gs_lat_deg=None, gs_lon_deg=None, gs_min_elev_deg=None):
+    altitude_km     = ALTITUDE_KM     if altitude_km     is None else altitude_km
+    inclination_deg = INCLINATION_DEG if inclination_deg is None else inclination_deg
+    duration_h      = SIM_DURATION_H  if duration_h      is None else duration_h
+    gs_lat_deg      = GS_LAT_DEG      if gs_lat_deg      is None else gs_lat_deg
+    gs_lon_deg      = GS_LON_DEG      if gs_lon_deg      is None else gs_lon_deg
+    gs_min_elev_deg = GS_MIN_ELEV_DEG if gs_min_elev_deg is None else gs_min_elev_deg
     """Build the simulation, run it, and return the logged data as a dict."""
 
     # --- 1. simulation skeleton ---------------------------------------------
@@ -137,6 +139,7 @@ def build_and_run(altitude_km=ALTITUDE_KM,
         "elev_deg":   np.degrees(gsLog.elevation),
         "range_km":   np.array(gsLog.slantRange) / 1e3,
         "period_s":   period_s,
+        "min_elev_deg": gs_min_elev_deg,
     }
 
 
@@ -167,7 +170,7 @@ def summarize(d):
           f"{100 * ecl_total / t[-1]:.0f}% of the day in shadow")
 
     passes = find_intervals(d["access"] > 0.5, t)
-    print(f"Ground passes      : {len(passes)} above {GS_MIN_ELEV_DEG:.0f} deg elevation")
+    print(f"Ground passes      : {len(passes)} above {d['min_elev_deg']:.0f} deg elevation")
     print("   #   start (h)   length (min)   max elev (deg)   min range (km)")
     for k, (s, e) in enumerate(passes, 1):
         m = (t >= s) & (t <= e)
@@ -189,7 +192,7 @@ def plot(d, save_as="week1.png"):
     ax[1].legend(loc="upper right")
 
     ax[2].plot(t_h, d["elev_deg"], lw=0.8)
-    ax[2].axhline(GS_MIN_ELEV_DEG, color="r", ls="--", lw=0.8, label="min elevation")
+    ax[2].axhline(d['min_elev_deg'], color="r", ls="--", lw=0.8, label="min elevation")
     ax[2].fill_between(t_h, -90, 90, where=d["access"] > 0.5, alpha=0.2, label="in contact")
     ax[2].set_ylim(-90, 90)
     ax[2].set_ylabel("elevation (deg)")
