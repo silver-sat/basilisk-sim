@@ -36,7 +36,11 @@ INCLINATION_DEG  = 51.6                   # ISS-like; SilverSat 1 was deployed f
 START_TIME_UTC   = "2026 SEP 21 12:00:00 (UTC)"
 SIM_DURATION_H   = 24.0
 
-# TODO(mentor): replace with the real ground-station coordinates
+"""
+We will use Silver Spring, MD as the ground-station coordinates for this exercise. For the flight,
+we'll use the location of the ground station.
+"""
+
 GS_NAME          = "SilverSat ground station"
 GS_LAT_DEG       = 39.00                  # placeholder: Silver Spring, MD
 GS_LON_DEG       = -77.03
