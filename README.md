@@ -47,9 +47,9 @@ there. Nothing else changes.
 | `smoke_test.py` | A minimal one-orbit simulation that confirms Basilisk works. Also a good first read: every exercise uses the same skeleton. |
 | `exercises/` | One folder per week. Each has a starter script, a short README describing the goal, and a place for your work. |
 | `.devcontainer/` | The definition of the cloud environment. Mentors maintain this. |
-| README.md | This document. |
-| .gitignore | Reduces repository clutter for temporary and work files. |
-| LICENSE | SilverSat open sources our code. |
+| `README.md` | This document. |
+| `.gitignore` | Reduces repository clutter for temporary and work files. |
+| `LICENSE` | SilverSat open sources our code. |
 
 ## The exercises
 
