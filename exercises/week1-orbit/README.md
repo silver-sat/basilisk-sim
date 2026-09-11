@@ -19,12 +19,13 @@ flight software will care about every single orbit:
 1. Run `week1_starter.py` in the terminal and read the summary it prints.
 2. Create the file `week1.ipynb` in the `week1-orbit` directory, which will 
    open a Jupyter notebook. 
-3. Open a code cell and run week1_starter.build_and_run(), assigning the output
+3. Open a code cell and import `week1_starter`. 
+4. Run `week1_starter.build_and_run()`, assigning the output
    to a variable.
-4. Add a line to call week1_starter.summarize() with the data you saved.
-5. Plot the data using week1_starter.plot().
+5. Add a line to call `week1_starter.summarize()` with the data you saved.
+6. Plot the data using `week1_starter.plot()`.
 6. Work through the numbered TODOs at the bottom of the script. Write your
-   answers in a `notes.md` in this folder; we'll compare as a group. Be 
+   answers in a `notes.md` you create in this folder; we'll compare as a group. Be 
    specific: say "Contact time drops to 22 minutes at 5 degree elevation",
    not simply "it went down."
 

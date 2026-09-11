@@ -6,8 +6,8 @@ and keep holding it while the disturbances that never stop try to push the
 satellite off.
 
 ## What you'll use
-- `reactionWheelStateEffector` — reaction wheels (if SilverSat 2 flies them)
-  or `mtbEffector` alone (if not — we'll decide before this week)
+- `reactionWheelStateEffector` — reaction wheels (if SilverSat 2 flies them) 
+  or `mtbEffector` alone (if not — we'll decide later)
 - `mrpFeedback` — Basilisk's standard attitude controller
 - `mtbMomentumManagement` — using torquers to unload the wheels
 - Disturbances: gravity gradient, aerodynamic drag, residual magnetic dipole
