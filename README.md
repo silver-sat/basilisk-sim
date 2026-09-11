@@ -83,7 +83,7 @@ Your codespace is yours, but it is not backed up. Commit and push regularly:
 
 ```
 git add .
-git commit -m "week 2: TRIAD working"
+git commit -m "Week 2: completed tasks"
 git push
 ```
 
