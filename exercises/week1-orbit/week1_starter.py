@@ -49,6 +49,24 @@ GS_MIN_ELEV_DEG  = 10.0                   # below this the antenna can't see us
 
 STEP_S           = 10.0                   # integration and logging step
 
+# ---------------------------------------------------------------------------
+# CubeSat parameters (form factor not yet decided -- see /areas/ notes)
+# Values are for a uniform box, nudged for real mass distribution.
+# Long axis is +z in both cases.
+# ---------------------------------------------------------------------------
+MASS_1U_KG      = 1.33
+MASS_3U_KG      = 4.0
+
+INERTIA_1U_KG_M2 = [[0.0022, 0, 0],
+                    [0, 0.0023, 0],
+                    [0, 0, 0.0021]]
+
+INERTIA_3U_KG_M2 = [[0.042, 0, 0],
+                    [0, 0.043, 0],
+                    [0, 0, 0.010]]
+
+MASS_KG  = MASS_3U_KG          # switch these two lines to change form factor
+INERTIA  = INERTIA_3U_KG_M2
 
 def build_and_run(altitude_km=None, inclination_deg=None, duration_h=None,
                   gs_lat_deg=None, gs_lon_deg=None, gs_min_elev_deg=None):
@@ -69,8 +87,8 @@ def build_and_run(altitude_km=None, inclination_deg=None, duration_h=None,
     # --- 2. spacecraft -------------------------------------------------------
     sc = spacecraft.Spacecraft()
     sc.ModelTag = "silversat"
-    sc.hub.mHub = 4.0                                        # kg
-    sc.hub.IHubPntBc_B = [[0.04, 0, 0], [0, 0.04, 0], [0, 0, 0.01]]  # kg m^2
+    sc.hub.mHub = MASS_KG         # kg
+    sc.hub.IHubPntBc_B = INERTIA  # kg m^2
 
     # --- 3. gravity, plus Earth rotation and Sun direction -------------------
     grav = simIncludeGravBody.gravBodyFactory()
